@@ -1,4 +1,4 @@
-﻿namespace Sproc
+﻿namespace Sproc.Component
 {
     partial class Layer
     {

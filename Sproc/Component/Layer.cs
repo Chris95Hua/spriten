@@ -10,11 +10,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Sproc
+namespace Sproc.Component
 {
     public partial class Layer : Control
     {
-        protected String mName;
         protected Image mImage;
         protected Graphics mGraphics;
         protected Boolean mLocked;
@@ -25,17 +24,14 @@ namespace Sproc
             this.Width = width;
             this.Height = height;
             this.Name = name;
-            mName = name;
+
             mTransparent = transparent;
-
             mImage = new Bitmap(width, height);
-
-            mGraphics = Graphics.FromImage(mImage);
+            mGraphics = Graphics.FromImage(Image);
 
             SetStyle(ControlStyles.OptimizedDoubleBuffer |
                     ControlStyles.AllPaintingInWmPaint |
                     ControlStyles.UserPaint, true);
-
             SetStyle(ControlStyles.UserMouse, true);
             SetStyle(ControlStyles.ResizeRedraw, true);
 
@@ -48,43 +44,10 @@ namespace Sproc
         }
 
         protected override void OnPaint(PaintEventArgs pe)
-        {
-            var bitMap = new Bitmap(mImage);
-            // by default the background color for bitmap is white
-            // you can modify this to follow your image background 
-            // or create a new Property so it can dynamically assigned
-            bitMap.MakeTransparent(Color.White);
-
-            mImage = bitMap;
-            
-            Graphics g = pe.Graphics;
-            g.SmoothingMode = SmoothingMode.AntiAlias;
-            g.PixelOffsetMode = PixelOffsetMode.HighQuality;
-            g.CompositingQuality = CompositingQuality.GammaCorrected;
-
-            float[][] mtxItens = {
-            new float[] {1,0,0,0,0},
-            new float[] {0,1,0,0,0},
-            new float[] {0,0,1,0,0},
-            new float[] {0,0,0,1,0},
-            new float[] {0,0,0,0,1}};
-
-            ColorMatrix colorMatrix = new ColorMatrix(mtxItens);
-
-            ImageAttributes imgAtb = new ImageAttributes();
-            imgAtb.SetColorMatrix(
-                colorMatrix,
-                ColorMatrixFlag.Default,
-                ColorAdjustType.Bitmap);
-
-            g.DrawImage(mImage,
-                        ClientRectangle,
-                        0.0f,
-                        0.0f,
-                        mImage.Width,
-                        mImage.Height,
-                        GraphicsUnit.Pixel,
-                        imgAtb);
+        { 
+            // display the image
+            pe.Graphics.DrawImage(mImage, ClientRectangle, 0.0f, 0.0f, mImage.Width, mImage.Height, GraphicsUnit.Pixel);
+            Invalidate();
         }
 
         protected override void OnPaintBackground(PaintEventArgs pevent)
@@ -118,6 +81,7 @@ namespace Sproc
                 g.FillRectangle(new SolidBrush(Color.FromArgb(255, Color.Transparent)), this.ClientRectangle);
             }
         }
+        
         
         public Image Image
         {
@@ -156,10 +120,12 @@ namespace Sproc
             }
         }
 
-        // Events
-        public void paint(object sender, MouseEventArgs e)
+        public Graphics Graphics
         {
-
+            get
+            {
+                return mGraphics;
+            }
         }
     }
 }

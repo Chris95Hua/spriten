@@ -7,17 +7,19 @@ using System.Drawing;
 
 namespace Sproc
 {
+    /// <summary>
+    /// User session
+    /// </summary>
     public static class User
     {
-        // constants
-        public const Char DRAW = 'c';
-        public const Char ERASE = 'e';
-        public const Char FILL = 'f';
-        public const Char LINE = 'l';
+        public enum Mode
+        {
+            Draw, Erase, Fill, Line, Shape, Select, ColorPicker
+        }
 
         // global vars
         public static Color _PrimaryColor = Color.Black;
         public static Color _SecondaryColor = Color.White;
-        public static Char _UserMode = DRAW;        
+        public static int _UserMode = (int) Mode.Draw;        
     }
 }
