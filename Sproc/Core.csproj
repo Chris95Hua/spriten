@@ -22,6 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -65,8 +66,10 @@
     <Compile Include="Program.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tool\ColorPicker.cs" />
     <Compile Include="Tool\Eraser.cs" />
-    <Compile Include="Tool\IDraw.cs" />
+    <Compile Include="Tool\ITool.cs" />
+    <Compile Include="Tool\DrawTool.cs" />
     <Compile Include="Tool\Pen.cs" />
     <Compile Include="User.cs" />
     <Compile Include="Utility\EventLogger.cs" />

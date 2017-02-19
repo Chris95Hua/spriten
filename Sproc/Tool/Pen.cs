@@ -5,33 +5,32 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
+using Sproc.Component;
+
 namespace Sproc.Tool
 {
-    class Pen : IDraw
+    class Pen : DrawTool
     {
-        private static Pen mPen = new Pen();
-        SolidBrush mPenBrush;
+        private static DrawTool mPen = new Pen();
 
         private Pen() { }
 
-        public static Pen GetTool()
+        public static ITool GetTool()
         {
             return mPen;
         }
 
-        public void Initialize()
+        override
+        public void Initialize(Layer layer)
         {
-            mPenBrush = new SolidBrush(User._PrimaryColor);
+            mDrawingBrush = new SolidBrush(User._PrimaryColor);
+            mGraphics = layer.Graphics;
         }
 
-        public void PaintPoint(Point point, Graphics graphics)
+        override
+        public void Use(Point point)
         {
-            graphics.FillRectangle(mPenBrush, point.X, point.Y, 1f, 1f);
-        }
-
-        public void CleanUp()
-        {
-            mPenBrush.Dispose();
+            mGraphics.FillRectangle(mDrawingBrush, point.X, point.Y, 1, 1);
         }
     }
 }

@@ -5,12 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
+using Sproc.Component;
+
 namespace Sproc.Tool
 {
-    public interface IDraw
+    public interface ITool
     {
-        void Initialize();
-        void PaintPoint(Point point, Graphics graphics);
+        void Initialize(Layer layer);
+        void Use(Point point);
         void CleanUp();
     }
 }

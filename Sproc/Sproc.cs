@@ -20,7 +20,7 @@ namespace Sproc
         private Layer mCanvas;
         public Point mCurMousePos = new Point();
         public Point mOldMousePos = new Point();
-        IDraw tool;
+        ITool tool;
 
         public Sproc()
         {
@@ -65,7 +65,8 @@ namespace Sproc
 
             if (e.Button == MouseButtons.Left)
             {
-                tool.Initialize();
+                Layer selectedLayer = (Layer)mCanvas.Controls.Find(mSession.SelectedLayer, true).First();
+                tool.Initialize(selectedLayer);
             }
         }
 
@@ -85,10 +86,8 @@ namespace Sproc
                 if (selectedNode != null)
                 {
                     mCurMousePos = e.Location;
-
-                    Layer selectedLayer = (Layer) mCanvas.Controls.Find(mSession.SelectedLayer, true).First();                    
-                    tool.PaintPoint(e.Location, selectedLayer.Graphics);
                     
+                    tool.Use(getCanvasRelativePoint(e.Location));
 
                     mOldMousePos = mCurMousePos;
                 }
@@ -116,17 +115,15 @@ namespace Sproc
                 if (e.Delta < 0)
                 {
                     scale = new SizeF(0.9f, 0.9f);
-                    mSession.Scale = mSession.Scale * 0.9f;
                 }
                 else
                 {
                     scale = new SizeF(1.1f, 1.1f);
-                    mSession.Scale = mSession.Scale * 1.1f;
                 }
 
                 mCanvas.Scale(scale);
 
-                stat_canvasZoom.Text = (mSession.Scale * 100).ToString("#.##") + "%";
+                stat_canvasZoom.Text = ((float)mCanvas.Height / mSession.Height * 100).ToString("#.##") + "%";
             }
         }
 
@@ -139,7 +136,7 @@ namespace Sproc
             }
             else
             {
-                mCanvas = createCanvas(256, 256);
+                mCanvas = createCanvas(32, 32);
 
                 int x = (this.Width - mCanvas.Width) / 2;
                 int y = (this.Height - mCanvas.Height) / 2;
@@ -154,6 +151,44 @@ namespace Sproc
             }
         }
 
+        private void toolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+            float ratio = (float)mSession.Height / (float)mCanvas.Size.Height;
+            SizeF scale = new SizeF(ratio, ratio);
+            mCanvas.Scale(scale);
+
+            stat_canvasZoom.Text = "100%";
+        }
+
+        private void toolSelected(object sender, EventArgs e)
+        {
+            // TODO: use ToolFactory
+            if (btn_brush.Checked)
+            {
+                User._UserMode = (int)User.Mode.Draw;
+                tool = Tool.Pen.GetTool();
+
+                Logger.Log("Pen tool selected");
+            }
+            else if (btn_eraser.Checked)
+            {
+                User._UserMode = (int)User.Mode.Erase;
+                tool = Eraser.GetTool();
+
+                Logger.Log("Eraser tool selected");
+            }
+        }
+
+        private void tree_layers_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            mSession.SelectedLayer = tree_layers.SelectedNode.Tag.ToString();
+        }
+    
+
+
+
+
+
         /// <summary>
         /// Create canvas panel
         /// </summary>
@@ -165,8 +200,6 @@ namespace Sproc
         private Layer createCanvas(int width, int height, Boolean transparent = false, Color? color = null)
         {
             Layer canvas = new Layer(width, height, "canvas", transparent);
-            canvas.Width = width;
-            canvas.Height = height;
             canvas.MouseDown += getMouseLocation_MouseDown;
             canvas.MouseMove += canvasAction_MouseMove;
             canvas.MouseWheel += zoom_MouseWheel;
@@ -225,38 +258,15 @@ namespace Sproc
             return layer;
         }
 
-        private void toolStripMenuItem6_Click(object sender, EventArgs e)
+        private Point getCanvasRelativePoint(Point cursorLocation)
         {
-            float ratio = (float) mSession.Height / (float) mCanvas.Size.Height;
-            SizeF scale = new SizeF(ratio, ratio);
-            mCanvas.Scale(scale);
+            int x, y;
+            int scale =  mCanvas.Height / mSession.Height;
 
-            mSession.Scale = 1;
-            stat_canvasZoom.Text = "100%";
-        }
+            x = cursorLocation.X / scale;
+            y = cursorLocation.Y / scale;
 
-        private void toolSelected(object sender, EventArgs e)
-        {
-            // TODO: event fired twice
-            if (btn_brush.Checked)
-            {
-                User._UserMode = (int)User.Mode.Draw;
-                tool = Tool.Pen.GetTool();
-
-                Logger.Log("Pen tool selected");
-            }
-            else if (btn_eraser.Checked)
-            {
-                User._UserMode = (int)User.Mode.Erase;
-                tool = Eraser.GetTool();
-
-                Logger.Log("Eraser tool selected");
-            }
-        }
-
-        private void tree_layers_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-            mSession.SelectedLayer = tree_layers.SelectedNode.Tag.ToString();
+            return new Point(x, y);
         }
     }
 }

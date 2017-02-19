@@ -14,8 +14,7 @@ namespace Sproc
         private String mName;           // Project name
         private int mWidth, mHeight;    // Canvas resolution
         private static int mLayerID;    // Records layer created for this project/session
-        private String mSelectedLayer;     // Selected layer ID
-        private float mScale;           // Scale of project for current working view
+        private String mSelectedLayer;  // Selected layer ID
 
         static Project()
         {
@@ -34,19 +33,6 @@ namespace Sproc
             mHeight = height;
             mName = name;
             //mMask.Add(new Mask(0, 0, String.Format("Layer {0:D2}", mLayerID)));
-            mScale = 1;
-        }
-
-        public float Scale
-        {
-            get
-            {
-                return mScale;
-            }
-            set
-            {
-                mScale = value;
-            }
         }
 
         public int Width

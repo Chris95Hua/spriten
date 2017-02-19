@@ -4,35 +4,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
-using System.Drawing.Drawing2D;
+
+using Sproc.Component;
 
 namespace Sproc.Tool
 {
-    class Eraser : IDraw
+    class Eraser : DrawTool
     {
-        private static Eraser mEraser = new Eraser();
-        SolidBrush mEraserBrush;
+        private static DrawTool mEraser = new Eraser();
 
         private Eraser() { }
 
-        public static Eraser GetTool()
+        public static ITool GetTool()
         {
             return mEraser;
         }
 
-        public void Initialize()
+        override
+        public void Initialize(Layer layer)
         {
-            mEraserBrush = new SolidBrush(Color.Transparent);
+            mDrawingBrush = new SolidBrush(Color.Transparent);
+            mGraphics = layer.Graphics; 
         }
 
-        public void PaintPoint(Point point, Graphics graphics)
+        override
+        public void Use(Point point)
         {
-            graphics.FillRectangle(mEraserBrush, point.X, point.Y, 1f, 1f);
-        }
-
-        public void CleanUp()
-        {
-            mEraserBrush.Dispose();
+            // TODO: set CompositingMode to default in Dispose
+            mGraphics.CompositingMode = System.Drawing.Drawing2D.CompositingMode.SourceCopy;
+            mGraphics.FillRectangle(mDrawingBrush, point.X, point.Y, 1, 1);
         }
     }
 }

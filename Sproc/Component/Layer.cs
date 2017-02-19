@@ -44,9 +44,16 @@ namespace Sproc.Component
         }
 
         protected override void OnPaint(PaintEventArgs pe)
-        { 
+        {
             // display the image
+            // TODO: scale graphics
+            //mGraphics.ScaleTransform();
+            //mGraphics.ResetTransform();
+            pe.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
+            pe.Graphics.PixelOffsetMode = PixelOffsetMode.Half;
+            pe.Graphics.SmoothingMode = SmoothingMode.None;
             pe.Graphics.DrawImage(mImage, ClientRectangle, 0.0f, 0.0f, mImage.Width, mImage.Height, GraphicsUnit.Pixel);
+            // TODO: only invalidate drawn areas
             Invalidate();
         }
 
@@ -81,8 +88,15 @@ namespace Sproc.Component
                 g.FillRectangle(new SolidBrush(Color.FromArgb(255, Color.Transparent)), this.ClientRectangle);
             }
         }
-        
-        
+
+        protected override void ScaleControl(SizeF factor, BoundsSpecified specified)
+        {
+            base.ScaleControl(factor, specified);
+            //mGraphics.PageScale = factor.Height;
+            //mGraphics.ResetTransform();
+            // TODO: reset control location
+        }
+
         public Image Image
         {
             get
