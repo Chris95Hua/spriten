@@ -1,0 +1,458 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D9A38A3D-AAA2-490B-8986-8BC20F37E8D9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Spriten</RootNamespace>
+    <AssemblyName>Spriten</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>0.6.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>spriten.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ColorPicker, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\ColorPicker.dll</HintPath>
+    </Reference>
+    <Reference Include="ObjectListView, Version=2.9.1.28918, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\ObjectListView.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.16.0.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="WeifenLuo.WinFormsUI.Docking.ThemeVS2013, Version=2.13.0.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\WeifenLuo.WinFormsUI.Docking.ThemeVS2013.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ColorTable\MenuStripColorTable.cs" />
+    <Compile Include="Command\DrawingCommand.cs" />
+    <Compile Include="Command\ICommand.cs" />
+    <Compile Include="Command\UndoRedoStack.cs" />
+    <Compile Include="CustomControl\Canvas.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControl\Canvas.Designer.cs">
+      <DependentUpon>Canvas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControl\NumericSlider.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControl\NumericSlider.Designer.cs">
+      <DependentUpon>NumericSlider.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Project.cs" />
+    <Compile Include="Data\SpriteSettings.cs" />
+    <Compile Include="Data\TexSynSettings.cs" />
+    <Compile Include="Data\User.cs" />
+    <Compile Include="Dialog\AboutDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\AboutDialog.Designer.cs">
+      <DependentUpon>AboutDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\ColorDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\ColorDialog.Designer.cs">
+      <DependentUpon>ColorDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\DocInfoDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\DocInfoDialog.Designer.cs">
+      <DependentUpon>DocInfoDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\DocumentDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\DocumentDialog.Designer.cs">
+      <DependentUpon>DocumentDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\ProcGenDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\ProcGenDialog.Designer.cs">
+      <DependentUpon>ProcGenDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\PreferenceDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\PreferenceDialog.Designer.cs">
+      <DependentUpon>PreferenceDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\TexSynDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dialog\TexSynDialog.Designer.cs">
+      <DependentUpon>TexSynDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dock\ColorDock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dock\ColorDock.Designer.cs">
+      <DependentUpon>ColorDock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dock\DocumentDock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dock\DocumentDock.Designer.cs">
+      <DependentUpon>DocumentDock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dock\GenerationPreviewDock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dock\GenerationPreviewDock.Designer.cs">
+      <DependentUpon>GenerationPreviewDock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dock\LayerDock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dock\LayerDock.Designer.cs">
+      <DependentUpon>LayerDock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dock\MaskDock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dock\MaskDock.Designer.cs">
+      <DependentUpon>MaskDock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dock\PaletteDock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dock\PaletteDock.Designer.cs">
+      <DependentUpon>PaletteDock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dock\ToolDock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dock\ToolDock.Designer.cs">
+      <DependentUpon>ToolDock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Drawing\DrawableMask.cs" />
+    <Compile Include="Drawing\LayerMaskGroup.cs" />
+    <Compile Include="Drawing\LayerMask.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="Spriten.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Spriten.Designer.cs">
+      <DependentUpon>Spriten.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tool\ColorPicker.cs" />
+    <Compile Include="Tool\Eraser.cs" />
+    <Compile Include="Tool\DrawTool.cs" />
+    <Compile Include="Tool\Fill.cs" />
+    <Compile Include="Tool\Pencil.cs" />
+    <Compile Include="Logging\EventLogger.cs" />
+    <Compile Include="Logging\FileLogger.cs" />
+    <Compile Include="Logging\ILogger.cs" />
+    <Compile Include="Logging\Logger.cs" />
+    <Compile Include="Tool\ToolMode.cs" />
+    <Compile Include="Utility\FileHelper.cs" />
+    <Compile Include="Utility\ImageHelper.cs" />
+    <Compile Include="Utility\SpriteHelper.cs" />
+    <Compile Include="Utility\TexSynHelper.cs" />
+    <Compile Include="Utility\ThemeHelper.cs" />
+    <EmbeddedResource Include="Dialog\AboutDialog.resx">
+      <DependentUpon>AboutDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\ColorDialog.resx">
+      <DependentUpon>ColorDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\DocInfoDialog.resx">
+      <DependentUpon>DocInfoDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\DocumentDialog.resx">
+      <DependentUpon>DocumentDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\ProcGenDialog.resx">
+      <DependentUpon>ProcGenDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\PreferenceDialog.resx">
+      <DependentUpon>PreferenceDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dialog\TexSynDialog.resx">
+      <DependentUpon>TexSynDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dock\ColorDock.resx">
+      <DependentUpon>ColorDock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dock\DocumentDock.resx">
+      <DependentUpon>DocumentDock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dock\GenerationPreviewDock.resx">
+      <DependentUpon>GenerationPreviewDock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dock\LayerDock.resx">
+      <DependentUpon>LayerDock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dock\MaskDock.resx">
+      <DependentUpon>MaskDock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dock\PaletteDock.resx">
+      <DependentUpon>PaletteDock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dock\ToolDock.resx">
+      <DependentUpon>ToolDock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Drawing\LayerMask.resx">
+      <DependentUpon>LayerMask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Spriten.resx">
+      <DependentUpon>Spriten.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="ClassDiagram.cd" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dark_bucket_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dark_eraser_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dark_pencil_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dark_pipette_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light_bucket_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light_eraser_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light_pencil_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light_pipette_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dark_switch_10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light_switch_10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dark_duplicate_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dark_duplicate_disabled_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dark_folder_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dark_folder_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dark_folder_disabled_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dark_folder_open_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dark_folder_open_disabled_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dark_page_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dark_page_disabled_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dark_trash_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dark_trash_disabled_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light_duplicate_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light_duplicate_disabled_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light_folder_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light_folder_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light_folder_disabled_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light_folder_open_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light_folder_open_disabled_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light_page_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light_page_disabled_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light_trash_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light_trash_disabled_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dark_eye_off_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dark_lock_off_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dark_lock_on_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light_eye_off_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light_lock_off_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light_lock_on_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dark_eye_on_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light_eye_on_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dark_arrow_down_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dark_arrow_down_disabled_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dark_arrow_up_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dark_arrow_up_disabled_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light_arrow_down_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light_arrow_down_disabled_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light_arrow_up_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\light_arrow_up_disabled_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\about.png" />
+    <Content Include="spriten.ico" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

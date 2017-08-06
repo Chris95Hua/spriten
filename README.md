@@ -6,10 +6,18 @@ sprite<sup>n</sup> is a sprite editor and a generative tool for simple sprite ge
 
 Since this project is supposed to be nothing more but a prototype and proof of concept that generative tool can be useful when integrated into a sprite editor, it lacks a lot of features found in some popular paint or sprite editor. However, I do plan to add more features in somewhere down the road (see [To-Do List](#to-do-list)). Also, see [Frequently Asked Questions](#frequently-asked-questions) for more information.
 
-**Disclaimer:** While I did my best to test and fix all the bugs I could find, by no means that this software is production-ready (see [Known Issues](#known-issues)). Therefore I will not be held responsible in any way if you lose your progress while using this software.
+**Disclaimer:** While I did my best to squash all the bugs I could find, by no means that this software is production-ready (see [Known Issues](#known-issues)). Therefore I will not be held responsible in any way if you lose your progress while using this software.
+
+
+## Software Requirement
+Microsoft .NET Framework 4.5.2
 
 
 ## Frequently Asked Questions
+#### Is there a Linux or macOS release?
+Sadly, this is Windows only. However, porting it to Mono shouldn't be too hard, but then I don't have the time to do it myself. 
+
+
 #### Where are the user guide and help documents?
 There are none to begin with but the learning curve should be low if you have some experience with Adobe Photoshop, Krita or similar paint editor in the past. In case you are looking for tutorial or explanations of the mask used for procedural generation, check [here](http://web.archive.org/web/20080228054410/http://www.davebollinger.com/works/pixelspaceships/).
 
@@ -26,7 +34,7 @@ While WPF is generally superior, it is not exactly as lightweight as I wanted af
 In my defense, I only have 3 months to work on this along with other projects so I can't be bothered with good codes.
 
 
-## To-do List:
+## To-Do List:
 - [ ] Undo and redo stack
 - [ ] Shortcuts
 - [ ] Color replacer tool

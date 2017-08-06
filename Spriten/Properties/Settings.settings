@@ -1,0 +1,51 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Spriten.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ForegroundColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Black</Value>
+    </Setting>
+    <Setting Name="BackgroundColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">White</Value>
+    </Setting>
+    <Setting Name="MaskBorderColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Salmon</Value>
+    </Setting>
+    <Setting Name="MaskBodyColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">NavajoWhite</Value>
+    </Setting>
+    <Setting Name="MaskEmptyBodyColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">LightGreen</Value>
+    </Setting>
+    <Setting Name="MaskBorderBodyColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">CornflowerBlue</Value>
+    </Setting>
+    <Setting Name="CheckerboardBgColor1" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">LightGray</Value>
+    </Setting>
+    <Setting Name="CheckerboardBgColor2" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">GhostWhite</Value>
+    </Setting>
+    <Setting Name="PixelGridColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">Gray</Value>
+    </Setting>
+    <Setting Name="ShowPixelGrid" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="PenSize" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="PenOpacity" Type="System.Byte" Scope="User">
+      <Value Profile="(Default)">255</Value>
+    </Setting>
+    <Setting Name="ShowBrushOutline" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="UserToolMode" Type="Spriten.Tool.ToolMode" Scope="User">
+      <Value Profile="(Default)">Draw</Value>
+    </Setting>
+    <Setting Name="ColorDockSelectorMode" Type="Spriten.Dock.ColorSelector" Scope="User">
+      <Value Profile="(Default)">Box</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

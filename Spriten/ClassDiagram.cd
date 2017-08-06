@@ -1,0 +1,338 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Spriten.ColorTable.MenuStripColorTable" Collapsed="true">
+    <Position X="17" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAKCAAAAAAAAAAAADABAAAAAgAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>ColorTable\MenuStripColorTable.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.Command.DrawingCommand" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Command\DrawingCommand.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Spriten.Command.UndoRedoStack&lt;T&gt;" Collapsed="true">
+    <Position X="13.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAgEAAAAABCAEAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Command\UndoRedoStack.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.CustomControl.Canvas" Collapsed="true">
+    <Position X="11.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AADRAQAAADAEABCAQiCCCCCCAAAAAACgAAAAAEAAAQE=</HashCode>
+      <FileName>CustomControl\Canvas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.CustomControl.NumericSlider" Collapsed="true">
+    <Position X="18.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>04iBAiiAACDAGASAAAGAAAAqAZQEgkEgIpFkAABACAA=</HashCode>
+      <FileName>CustomControl\NumericSlider.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.Data.Project" Collapsed="true">
+    <Position X="18.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQACBAAAAEAAgAAQgEAACAAAAABgAAAkAEAAAAg=</HashCode>
+      <FileName>Data\Project.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.Data.User" Collapsed="true">
+    <Position X="15.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAABAgAAAAACEBIAkQTAAAIAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Data\User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.Dialog.AboutDialog" Collapsed="true">
+    <Position X="10" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>kIAAAAgAACAACAUAAACAAAACAAAAEAAAAAAAAQBAACA=</HashCode>
+      <FileName>Dialog\AboutDialog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.Dialog.ColorDialog" Collapsed="true">
+    <Position X="13.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gIiAMCVAA2QhSBCAAACAAVEWAEAAAFAACYSABiYQCAA=</HashCode>
+      <FileName>Dialog\ColorDialog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.Dialog.DocInfoDialog" Collapsed="true">
+    <Position X="17" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAIAAEAAOAAQJAAAACAABACAAAAIACAAAAAAAAGAAA=</HashCode>
+      <FileName>Dialog\DocInfoDialog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.Dialog.DocumentDialog" Collapsed="true">
+    <Position X="18.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>g4AAQRUEACwAQIgQUICYSBECAAAgJCAUAAIAAIAAAAE=</HashCode>
+      <FileName>Dialog\DocumentDialog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.Dialog.PreferenceDialog" Collapsed="true">
+    <Position X="13.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAEAACAAQAAAAACAABACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dialog\PreferenceDialog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.Dialog.ProcGenDialog" Collapsed="true">
+    <Position X="15.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>9MRAQD1ICOgAShTigACAgBAHASAJEhNAgAQAwIBIAAA=</HashCode>
+      <FileName>Dialog\ProcGenDialog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.Dialog.TexSynDialog" Collapsed="true">
+    <Position X="17" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>YcAAAC1AgOgQSBRAgKCAABACAAgBGAAQCAQAAJBAAAA=</HashCode>
+      <FileName>Dialog\TexSynDialog.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.Dock.ColorDock" Collapsed="true">
+    <Position X="15.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAACBgAWMEAAAAAAKAAIAiABADYAAwgQBAEAAAEAA=</HashCode>
+      <FileName>Dock\ColorDock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.Dock.DocumentDock" Collapsed="true">
+    <Position X="10" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgKBAAksCKBBABCEAAaBCCJOQZKKAgAJIgACAAcCAEU=</HashCode>
+      <FileName>Dock\DocumentDock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.Dock.GenerationPreviewDock" Collapsed="true">
+    <Position X="18.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAECQAACAAAAAAAACAAAACAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Dock\GenerationPreviewDock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.Dock.LayerDock" Collapsed="true">
+    <Position X="11.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>oAIgABlFJqJMChYMEFTAABpWkIbDDMEiUYAgTAUDAEQ=</HashCode>
+      <FileName>Dock\LayerDock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.Dock.MaskDock" Collapsed="true">
+    <Position X="15.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAIECiAABkEAACAAEAGBIyEAggIgAAAAIUABAA=</HashCode>
+      <FileName>Dock\MaskDock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.Dock.PaletteDock" Collapsed="true">
+    <Position X="11.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAACKAAAAARBCAAAACAAAAAgEAAAAACAAAAAA=</HashCode>
+      <FileName>Dock\PaletteDock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.Dock.PaletteColor" Collapsed="true">
+    <Position X="10" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQAAEAEAAAAABQAAAAQAAAAAAAAAAAgAAIAAA=</HashCode>
+      <FileName>Dock\PaletteDock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.Dock.ToolDock" Collapsed="true">
+    <Position X="11.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQAgCEAAGIAAAAAACiAAIACCAAAQACAgAEASQAQwgA=</HashCode>
+      <FileName>Dock\ToolDock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.Drawing.DrawableMask" Collapsed="true">
+    <Position X="1.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAZEVIkBCgAAAAAAAgATFUAAAAASAYoAACAAACCAQA=</HashCode>
+      <FileName>Drawing\DrawableMask.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Spriten.Drawing.LayerMask" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAREVAEACAAAACAAQgADAGgABAAACAgAAChAECACAA=</HashCode>
+      <FileName>Drawing\LayerMask.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Spriten.Drawing.LayerMaskGroup" Collapsed="true">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAREVAEACBAAAEAAAgQDAEgQAIEAAAgAACAAACCAAA=</HashCode>
+      <FileName>Drawing\LayerMaskGroup.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Spriten.Utility.EventLogger" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="13.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logging\EventLogger.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Spriten.Utility.FileLogger" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="17" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Logging\FileLogger.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Spriten.Utility.Logger" Collapsed="true">
+    <Position X="13.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logging\Logger.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.Utility.FileHelper" Collapsed="true">
+    <Position X="15.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAwAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Utility\FileHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.Utility.ImageHelper" Collapsed="true">
+    <Position X="10" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AGAAAAACAAAAAAAEgAABEAAAAAQAAAAAAAIgAAAAAAA=</HashCode>
+      <FileName>Utility\ImageHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.Utility.SpriteHelper" Collapsed="true">
+    <Position X="13.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BACAAAAAAAAQAFAAAAAAAAACAAAAAAQAIAAAQAAAAQA=</HashCode>
+      <FileName>Utility\SpriteHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.Utility.TexSynHelper" Collapsed="true">
+    <Position X="18.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgIAAAAAAAACAAAAAAAAAAAAADAACAAAABAAAAAA=</HashCode>
+      <FileName>Utility\TexSynHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.Utility.ThemeHelper" Collapsed="true">
+    <Position X="10" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAECAAAAAAAAAQwAAAgAAAAAAQAAAABAAgAAAEAAA=</HashCode>
+      <FileName>Utility\ThemeHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.Program" Collapsed="true">
+    <Position X="17" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.Spriten" Collapsed="true">
+    <Position X="15.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>nDy+l//8AKDIMLEOBDDBwnPyy7rCxIi4ex2iDHYKim0=</HashCode>
+      <FileName>Spriten.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.Properties.Resources" Collapsed="true">
+    <Position X="10" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EESASgYQAAALAANAwAAhFiAAgTCgCkShghgAEgIgAIQ=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.Properties.Settings" Collapsed="true">
+    <Position X="11.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>KAAAAIAAEAAgABAGAAABIAgQDAABAAAAAEAEAAAAKAA=</HashCode>
+      <FileName>Settings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.Tool.ColorPicker" Collapsed="true">
+    <Position X="7.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAEAAAAAAAAAAQAAIAAAAAAAAAAEAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Tool\ColorPicker.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.Tool.DrawTool" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tool\DrawTool.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.Tool.Eraser" Collapsed="true">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgAAAAAQAAIAAAAAAAAAAEAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Tool\Eraser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.Tool.Fill" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AiAAAAAgAAIAAwQAYAQAAAAAAAAEAAACAAQgAAAAAAk=</HashCode>
+      <FileName>Tool\Fill.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spriten.Tool.Pencil" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAgAAAAgQAAIAAAAAAAAAAEAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Tool\Pencil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="Spriten.Data.SpriteSettings" Collapsed="true">
+    <Position X="10" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAJAAABAAAAQAAAAAMIAAAAAACAAwAAAAhEADAgAAAA=</HashCode>
+      <FileName>Data\SpriteSettings.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Interface Name="Spriten.Command.ICommand&lt;T&gt;" Collapsed="true">
+    <Position X="10" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAAAAAAAAAACAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Command\ICommand.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Spriten.Utility.ILogger" Collapsed="true">
+    <Position X="11.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Logging\ILogger.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Spriten.Dock.ColorSelector" Collapsed="true">
+    <Position X="10" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>Dock\ColorDock.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Spriten.Tool.ToolMode" Collapsed="true">
+    <Position X="11.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAACABACAAgCAAAAAAAQAABAAA=</HashCode>
+      <FileName>Tool\ToolMode.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
