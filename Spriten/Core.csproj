@@ -24,7 +24,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>0.6.0.%2a</ApplicationVersion>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -133,12 +133,6 @@
     <Compile Include="Dialog\ProcGenDialog.Designer.cs">
       <DependentUpon>ProcGenDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dialog\PreferenceDialog.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dialog\PreferenceDialog.Designer.cs">
-      <DependentUpon>PreferenceDialog.cs</DependentUpon>
-    </Compile>
     <Compile Include="Dialog\TexSynDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,12 +150,6 @@
     </Compile>
     <Compile Include="Dock\DocumentDock.Designer.cs">
       <DependentUpon>DocumentDock.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Dock\GenerationPreviewDock.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Dock\GenerationPreviewDock.Designer.cs">
-      <DependentUpon>GenerationPreviewDock.cs</DependentUpon>
     </Compile>
     <Compile Include="Dock\LayerDock.cs">
       <SubType>Form</SubType>
@@ -204,10 +192,6 @@
     <Compile Include="Tool\DrawTool.cs" />
     <Compile Include="Tool\Fill.cs" />
     <Compile Include="Tool\Pencil.cs" />
-    <Compile Include="Logging\EventLogger.cs" />
-    <Compile Include="Logging\FileLogger.cs" />
-    <Compile Include="Logging\ILogger.cs" />
-    <Compile Include="Logging\Logger.cs" />
     <Compile Include="Tool\ToolMode.cs" />
     <Compile Include="Utility\FileHelper.cs" />
     <Compile Include="Utility\ImageHelper.cs" />
@@ -229,9 +213,6 @@
     <EmbeddedResource Include="Dialog\ProcGenDialog.resx">
       <DependentUpon>ProcGenDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dialog\PreferenceDialog.resx">
-      <DependentUpon>PreferenceDialog.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Dialog\TexSynDialog.resx">
       <DependentUpon>TexSynDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -240,9 +221,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dock\DocumentDock.resx">
       <DependentUpon>DocumentDock.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Dock\GenerationPreviewDock.resx">
-      <DependentUpon>GenerationPreviewDock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dock\LayerDock.resx">
       <DependentUpon>LayerDock.cs</DependentUpon>

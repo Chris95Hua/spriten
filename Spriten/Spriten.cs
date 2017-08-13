@@ -265,6 +265,7 @@ namespace Spriten
             mToolDock.SetToolStripForeColor = SetToolStripForeColor;
             mToolDock.SetToolStripBackColor = SetToolStripBackColor;
             mToolDock.UpdateBrush = UpdateDocumentsBrush;
+
             ActionToolSetForeColor = mToolDock.SetForegroundColor;
         }
 
@@ -277,6 +278,7 @@ namespace Spriten
             // Color picker
             ColorPicker picker = (ColorPicker)ColorPicker.GetTool();
             picker.SetPrimaryColor += SetToolForeColor;
+            picker.SetPrimaryColor += SetToolStripForeColor;
             picker.SetPrimaryColor += SetColorDockColor;
         }
 

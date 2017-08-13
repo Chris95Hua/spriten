@@ -562,8 +562,11 @@ namespace Spriten.Dock
                 Bitmap groupImage = selected.Bitmap;
                 Bitmap maskImage = selected.IsUsingMask ? selected.Mask : null;
                 DrawableMask flattenGroup = new LayerMask("Flatten " + drawable.Name, Project, groupImage, maskImage);
-                flattenGroup.Parent = drawable.Parent;
 
+                groupImage.Dispose();
+                maskImage.Dispose();
+
+                flattenGroup.Parent = drawable.Parent;
                 List<DrawableMask> parent = drawable.Parent == null ? Project.DrawableList : ((LayerMaskGroup)drawable.Parent).DrawableMaskList;
                 parent.Insert(parent.IndexOf(drawable), flattenGroup);
                 parent.Remove(drawable);

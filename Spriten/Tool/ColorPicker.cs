@@ -18,12 +18,12 @@ namespace Spriten.Tool
             return mColorPicker;
         }
 
-        public override void Initialize(Canvas canvas)
+        public void Initialize(Canvas canvas)
         {
             mCanvas = canvas;
         }
 
-        public override Rectangle Use(Rectangle rect)
+        public Rectangle Use(Rectangle rect)
         {
             int argb = mCanvas.GetPixel(rect.X, rect.Y);
 

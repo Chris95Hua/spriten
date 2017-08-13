@@ -205,10 +205,10 @@ namespace Spriten.Dock
             }
         }
 
-        public void UpdateRgbFields(Color newColor)
+        public void UpdateRgbFields(Color color)
         {
-            mSelectedColor = newColor;
-            mColorHsl = HslColor.FromColor(newColor);
+            mSelectedColor = color;
+            mColorHsl = HslColor.FromColor(color);
 
             if (mSelector == ColorSelector.Box)
             {
@@ -218,7 +218,7 @@ namespace Spriten.Dock
             else if(mSelector == ColorSelector.Wheel)
             {
                 mLockUpdates = true;
-                mColorWheel.Color = newColor;
+                mColorWheel.Color = color;
                 mLockUpdates = false;
             }
         }

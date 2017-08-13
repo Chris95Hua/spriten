@@ -9,7 +9,7 @@ namespace Spriten.Tool
 {
     class Pencil : DrawTool
     {
-        private static DrawTool mPen = new Pencil();
+        private static DrawTool mPencil = new Pencil();
         private int maskColor, argb;
         private DrawableMask mDrawable;
 
@@ -17,10 +17,10 @@ namespace Spriten.Tool
 
         public static DrawTool GetTool()
         {
-            return mPen;
+            return mPencil;
         }
 
-        public override void Initialize(Canvas canvas)
+        public void Initialize(Canvas canvas)
         {
             mDrawable = canvas.SelectedDrawable;
 
@@ -43,7 +43,7 @@ namespace Spriten.Tool
             argb = ImageHelper.PremultiplyAlpha(User.ForegroundColor, User.PenOpacity);
         }
 
-        public override Rectangle Use(Rectangle rect)
+        public Rectangle Use(Rectangle rect)
         {
             int locX = rect.X, locY = rect.Y;
 

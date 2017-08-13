@@ -25,7 +25,8 @@ There are none to begin with but the learning curve should be low if you have so
 No.
 
 #### Will you maintain and continue the development of this project in future?
-Unlikely, unless I really have an awful lot of free time on my hands. However, feel free to fork this project and contribute if you wish to see this project in a more complete state.
+Short answer: Unlikely.
+Long answer: I'll most likely stop after clearing all the things in the to-do list below, unless I really have an awful lot of free time on my hands. However, feel free to fork this project and contribute if you wish to see this project in a more complete state.
 
 #### Why WinForms instead of WPF?
 While WPF is generally superior, it is not exactly as lightweight as I wanted after having experimented with a version build using WPF in early development stages. Indeed, sprite<sup>n</sup> will benefit a lot from the hardware acceleration offered by WPF, but GDI+ isn't *that* slow to begin with. Also, I doubt I can actually meet the tight deadline if I were to go with WPF since I don't have much experience working with WPF.
@@ -47,9 +48,9 @@ In my defense, I only have 3 months to work on this along with other projects so
 
 
 ## Known Issues
-* Bucket fill will leak if the fill region is enclosed with diagonally adjacent pixels.
-* Tool's opacity affects the lightness of color instead of just the alpha channel.
-* Layer selection doesn't get updated when merging, moving or removing the selected layers.
+* Bucket fill will leak if the fill region is enclosed with diagonally adjacent pixels
+* Tool's opacity affects the lightness of color instead of just the alpha channel
+* Layer selection doesn't get updated when merging, moving or removing the selected layers
 
 
 

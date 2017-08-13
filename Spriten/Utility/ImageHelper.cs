@@ -91,8 +91,6 @@ namespace Spriten.Utility
             }
             
             bmp.UnlockBits(data);
-            bmp.Dispose();
-
             return argb;
         }
 

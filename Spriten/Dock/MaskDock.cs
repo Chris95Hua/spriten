@@ -55,11 +55,6 @@ namespace Spriten.Dock
             EnableControls(enable);
         }
 
-        public void SetUseMask(bool enable)
-        {
-            chk_useMask.Enabled = enable;
-        }
-
         public void CheckUseMask(bool check)
         {
             EnableControls(check);

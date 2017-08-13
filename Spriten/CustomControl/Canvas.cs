@@ -128,11 +128,7 @@ namespace Spriten.CustomControl
 
         public void Cleanup()
         {
-            for (int i = Project.DrawableList.Count - 1; i >= 0; i--)
-            {
-                Project.DrawableList[i].Dispose();
-            }
-
+            Project.Cleanup();
             mCellGridPen.Dispose();
             mBufferGraphics.Dispose();
             ImageBuffer.Dispose();

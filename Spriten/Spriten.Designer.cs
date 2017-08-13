@@ -53,6 +53,8 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.procGenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textureSynthesisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.documentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
@@ -91,8 +93,6 @@
             this.lbl_backColor = new System.Windows.Forms.Label();
             this.btn_switchColor = new System.Windows.Forms.Button();
             this.tool_actions = new System.Windows.Forms.FlowLayoutPanel();
-            this.procGenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.textureSynthesisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stat_canvas.SuspendLayout();
             this.menu_mainMenu.SuspendLayout();
             this.pnl_color.SuspendLayout();
@@ -307,6 +307,20 @@
             this.generateToolStripMenuItem.Name = "generateToolStripMenuItem";
             this.generateToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.generateToolStripMenuItem.Text = "Generate...";
+            // 
+            // procGenToolStripMenuItem
+            // 
+            this.procGenToolStripMenuItem.Name = "procGenToolStripMenuItem";
+            this.procGenToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.procGenToolStripMenuItem.Text = "Procedural Generation";
+            this.procGenToolStripMenuItem.Click += new System.EventHandler(this.procGenToolStripMenuItem_Click);
+            // 
+            // textureSynthesisToolStripMenuItem
+            // 
+            this.textureSynthesisToolStripMenuItem.Name = "textureSynthesisToolStripMenuItem";
+            this.textureSynthesisToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.textureSynthesisToolStripMenuItem.Text = "Texture Synthesis";
+            this.textureSynthesisToolStripMenuItem.Click += new System.EventHandler(this.textureSynthesisToolStripMenuItem_Click);
             // 
             // toolStripSeparator6
             // 
@@ -617,20 +631,6 @@
             this.tool_actions.Name = "tool_actions";
             this.tool_actions.Size = new System.Drawing.Size(784, 38);
             this.tool_actions.TabIndex = 19;
-            // 
-            // procGenToolStripMenuItem
-            // 
-            this.procGenToolStripMenuItem.Name = "procGenToolStripMenuItem";
-            this.procGenToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.procGenToolStripMenuItem.Text = "Procedural Generation";
-            this.procGenToolStripMenuItem.Click += new System.EventHandler(this.procGenToolStripMenuItem_Click);
-            // 
-            // textureSynthesisToolStripMenuItem
-            // 
-            this.textureSynthesisToolStripMenuItem.Name = "textureSynthesisToolStripMenuItem";
-            this.textureSynthesisToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
-            this.textureSynthesisToolStripMenuItem.Text = "Texture Synthesis";
-            this.textureSynthesisToolStripMenuItem.Click += new System.EventHandler(this.textureSynthesisToolStripMenuItem_Click);
             // 
             // Spriten
             // 

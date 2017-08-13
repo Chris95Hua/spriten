@@ -37,14 +37,15 @@ namespace Spriten.Utility
 
         public static Bitmap GenerateSprite(DrawableMask drawable, SpriteSettings settings)
         {
-            // cast layer to group, randomly select a layer
-            if (settings.RandomFromGroup && !drawable.IsLayer)
+            // Cast layer to group, randomly select a layer and return the result
+            if (settings.RandomFromGroup && !drawable.IsLayer && ((LayerMaskGroup)drawable).DrawableMaskList.Count > 0)
             {
                 LayerMaskGroup group = (LayerMaskGroup)drawable;
                 int randomIndex = mRandom.Next(0, group.DrawableMaskList.Count);
                 return GenerateSprite(group.DrawableMaskList[randomIndex], settings);
             }
 
+            // Get settings
             int width = drawable.Width;
             int height = drawable.Height;
             int oriSize = width * height;
@@ -53,6 +54,7 @@ namespace Spriten.Utility
 
             LayerMask layer;
 
+            // Create a copy of LayerMask
             if (drawable.IsLayer)
                 layer = (LayerMask)drawable.GetCopy("copy");
             else
@@ -65,7 +67,7 @@ namespace Spriten.Utility
             
             int val;
 
-            // apply mask and generate random sample
+            // Apply mask and randomize values
             for (int y = 0; y < height; y++)
             {
                 for (int x = 0; x < width; x++)
@@ -80,7 +82,7 @@ namespace Spriten.Utility
                 }
             }
 
-            // generate edges
+            // Generate edges
             for (int y = 0; y < outputHeight; y++)
             {
                 for (int x = 0; x < outputWidth; x++)
@@ -108,16 +110,19 @@ namespace Spriten.Utility
                 }
             }
 
-            // render pixel data
+            // Render pixel data
             double calcBrightness, shading;
             int argbColor, edgeColor = 0;
 
             if (settings.EdgeColor != Color.Transparent)
+                // Custom edge color
                 edgeColor = settings.EdgeColor.ToArgb();           
 
             if (settings.ColorMode == ColorMode.Fill)
+                // Custom fill color
                 argbColor = settings.FillColor.ToArgb();
             else
+                // Random fill color
                 argbColor = Color.FromArgb(mRandom.Next(256), mRandom.Next(256), mRandom.Next(256)).ToArgb();
 
             for (int y = 0; y < height; y++)
@@ -129,13 +134,15 @@ namespace Spriten.Utility
                     // Render sprite
                     if (spriteMask[val] != EMPTY)
                     {
-                        // coloring
+                        // Coloring
                         if (settings.ColorMode == ColorMode.Default)
+                            // Sample color from original layer
                             spriteData[val] = layer.BitmapBits[x + (y * width)];
                         else
+                            // Use defined color
                             spriteData[val] = argbColor;
 
-                        // shading
+                        // Shading
                         if (settings.Shading != Shading.None)
                         {
                             if (settings.Shading == Shading.Horizontal || (settings.Shading == Shading.Default && settings.MirrorY))
@@ -149,17 +156,18 @@ namespace Spriten.Utility
                             spriteData[val] = ControlPaint.Light(Color.FromArgb(spriteData[val]), (float)calcBrightness).ToArgb();
                         }
 
-                        // coloring edge
+                        // Coloring edges
                         if (spriteMask[val] == BORDER)
                         {
-                            // use custom colour
+                            // Use custom color
                             if (settings.EdgeColor != Color.Empty)
                                 spriteData[val] = edgeColor;
-                            // darken default pixel color
+                            // Darken default pixel color
                             else
                                 spriteData[val] = ControlPaint.Dark(Color.FromArgb(spriteData[val]), (float)settings.EdgeBrightness).ToArgb();
                         }
 
+                        // Mirror
                         if (settings.MirrorX)
                             spriteData[outputWidth - 1 - x + (y * outputWidth)] = spriteData[val];
 
@@ -171,6 +179,8 @@ namespace Spriten.Utility
                     }
                 }
             }
+
+            // Free resource and release GC handle 
             layer.Dispose();
             spriteHandle.Free();
 
@@ -188,14 +198,11 @@ namespace Spriten.Utility
             outputGraphics.SmoothingMode = SmoothingMode.None;
             outputGraphics.PixelOffsetMode = PixelOffsetMode.Half;
 
-            // setup
-            Bitmap temp;
-
             if (settings.UseLayerSeed)
             {
                 for (int i = drawables.Count - 1; i >= 0; i--)
                 {
-                    using (temp = GenerateSprite(drawables[i], settings))
+                    using (Bitmap temp = GenerateSprite(drawables[i], settings))
                     {
                         outputGraphics.DrawImage(temp, settings.OuterMargin, settings.OuterMargin, spriteWidth, spriteHeight);
                     }
@@ -299,17 +306,21 @@ namespace Spriten.Utility
                 DrawableMask toDraw = drawables[i];
 
                 // if group
-                if (randomFromGroup && !toDraw.IsLayer)
+                if (randomFromGroup && !toDraw.IsLayer && ((LayerMaskGroup)drawables[i]).DrawableMaskList.Count > 0)
                     toDraw = RandomSelectLayer((LayerMaskGroup)drawables[i]);
 
                 tempGraphics.DrawImageUnscaled(toDraw.Bitmap, 0, 0, width, height);
                 tempMaskGraphics.DrawImageUnscaled(toDraw.Mask, 0, 0, width, height);
             }
 
+            DrawableMask merged = new LayerMask("flatten", project, temp, tempMask);
+
             tempGraphics.Dispose();
             tempMaskGraphics.Dispose();
+            temp.Dispose();
+            tempMask.Dispose();
 
-            return new LayerMask("flatten", project, temp, tempMask);
+            return merged;
         }
 
         private static LayerMask RandomSelectLayer(LayerMaskGroup group)

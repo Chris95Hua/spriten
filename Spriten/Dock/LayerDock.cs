@@ -120,7 +120,7 @@ namespace Spriten.Dock
             treeColumnRenderer.UseTriangles = true;
         }
 
-        public void LoadIconsAndTheme()
+        private void LoadIconsAndTheme()
         {
             BackColor = ThemeHelper.Background;
 
@@ -136,7 +136,7 @@ namespace Spriten.Dock
             SetButtons(false);
         }
 
-        public void SetAddButton(bool enable)
+        private void SetAddButton(bool enable)
         {
             if (ThemeHelper.Style == ThemeHelper.ThemeStyle.Dark)
             {
@@ -156,7 +156,7 @@ namespace Spriten.Dock
             btn_add.Enabled = enable;
         }
 
-        public void SetRemoveButton(bool enable)
+        private void SetRemoveButton(bool enable)
         {
             if (ThemeHelper.Style == ThemeHelper.ThemeStyle.Dark)
             {
@@ -176,7 +176,7 @@ namespace Spriten.Dock
             btn_remove.Enabled = enable;
         }
 
-        public void SetGroupButton(bool enable)
+        private void SetGroupButton(bool enable)
         {
             if (ThemeHelper.Style == ThemeHelper.ThemeStyle.Dark)
             {
@@ -196,7 +196,7 @@ namespace Spriten.Dock
             btn_group.Enabled = enable;
         }
 
-        public void SetDuplicateButton(bool enable)
+        private void SetDuplicateButton(bool enable)
         {
             if (ThemeHelper.Style == ThemeHelper.ThemeStyle.Dark)
             {
@@ -216,7 +216,7 @@ namespace Spriten.Dock
             btn_duplicate.Enabled = enable;
         }
 
-        public void SetMoveUpButton(bool enable)
+        private void SetMoveUpButton(bool enable)
         {
             if (ThemeHelper.Style == ThemeHelper.ThemeStyle.Dark)
             {
@@ -236,7 +236,7 @@ namespace Spriten.Dock
             btn_moveUp.Enabled = enable;
         }
 
-        public void SetMoveDownButton(bool enable)
+        private void SetMoveDownButton(bool enable)
         {
             if (ThemeHelper.Style == ThemeHelper.ThemeStyle.Dark)
             {
@@ -401,14 +401,14 @@ namespace Spriten.Dock
             SetButtons(true);
         }
 
-        public void ClearList()
-        {
-            treelist_layer.ClearObjects();
-        }
-
         public void UpdateList(List<DrawableMask> drawables)
         {
             treelist_layer.UpdateObjects(drawables);
+        }
+
+        public void ClearList()
+        {
+            treelist_layer.ClearObjects();
         }
 
         #endregion

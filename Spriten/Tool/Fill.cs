@@ -19,7 +19,7 @@ namespace Spriten.Tool
             return mFillTool;
         }
 
-        public override void Initialize(Canvas canvas)
+        public void Initialize(Canvas canvas)
         {
             mDrawable = canvas.SelectedDrawable;
 
@@ -41,7 +41,7 @@ namespace Spriten.Tool
             mArgbFill = User.ForegroundColor.ToArgb();
         }
 
-        public override Rectangle Use(Rectangle rect)
+        public Rectangle Use(Rectangle rect)
         {
             int x = rect.X, y = rect.Y;
 

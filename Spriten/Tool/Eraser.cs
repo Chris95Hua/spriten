@@ -16,12 +16,12 @@ namespace Spriten.Tool
             return mEraser;
         }
         
-        public override void Initialize(Canvas canvas)
+        public void Initialize(Canvas canvas)
         {
             mDrawable = canvas.SelectedDrawable;
         }
         
-        public override Rectangle Use(Rectangle rect)
+        public Rectangle Use(Rectangle rect)
         {
             int locX = rect.X, locY = rect.Y;
 
