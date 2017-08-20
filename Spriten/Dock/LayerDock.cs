@@ -738,9 +738,19 @@ namespace Spriten.Dock
         private void treelist_layer_SubItemChecking(object sender, SubItemCheckingEventArgs e)
         {
             if (e.Column.Index == 1)
-            {
                 BeginInvoke(RefreshCanvas);
-            }
+        }
+
+        private void treelist_layer_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+                RemoveAction(sender, e);
+            else if (e.Modifiers == Keys.Control && e.KeyCode == Keys.C)
+                CopyAction(sender, e);
+            else if (e.Modifiers == Keys.Control && e.KeyCode == Keys.X)
+                CutAction(sender, e);
+            else if (e.Modifiers == Keys.Control && e.KeyCode == Keys.V)
+                PasteAction(sender, e);
         }
 
         #endregion

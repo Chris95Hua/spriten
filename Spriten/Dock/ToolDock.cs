@@ -27,14 +27,14 @@ namespace Spriten.Dock
             lbl_foreColor.BackColor = User.ForegroundColor;
             lbl_backColor.BackColor = User.BackgroundColor;
 
-            SelectTool();
+            SelectTool(User.ToolMode);
         }
 
-        private void SelectTool()
+        public void SelectTool(ToolMode mode)
         {
             mLockUpdate = true;
 
-            switch (User.ToolMode)
+            switch (mode)
             {
                 case ToolMode.Draw:
                     rad_pen.Checked = true;
@@ -49,6 +49,8 @@ namespace Spriten.Dock
                     rad_colorPicker.Checked = true;
                     break;
             }
+
+            UpdateBrush?.Invoke();
 
             mLockUpdate = false;
         }

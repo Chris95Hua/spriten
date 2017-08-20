@@ -78,7 +78,7 @@
             this.rad_pen.Size = new System.Drawing.Size(8, 8);
             this.rad_pen.TabIndex = 4;
             this.rad_pen.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.tip_tool.SetToolTip(this.rad_pen, "Pencil");
+            this.tip_tool.SetToolTip(this.rad_pen, "Pencil (B)");
             this.rad_pen.UseVisualStyleBackColor = true;
             this.rad_pen.CheckedChanged += new System.EventHandler(this.ToolSelected);
             // 
@@ -94,7 +94,7 @@
             this.rad_eraser.Size = new System.Drawing.Size(8, 8);
             this.rad_eraser.TabIndex = 4;
             this.rad_eraser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.tip_tool.SetToolTip(this.rad_eraser, "Eraser");
+            this.tip_tool.SetToolTip(this.rad_eraser, "Eraser (E)");
             this.rad_eraser.UseVisualStyleBackColor = true;
             this.rad_eraser.CheckedChanged += new System.EventHandler(this.ToolSelected);
             // 
@@ -109,7 +109,7 @@
             this.ToolPanel.Location = new System.Drawing.Point(0, 0);
             this.ToolPanel.MinimumSize = new System.Drawing.Size(32, 128);
             this.ToolPanel.Name = "ToolPanel";
-            this.ToolPanel.Size = new System.Drawing.Size(78, 262);
+            this.ToolPanel.Size = new System.Drawing.Size(120, 262);
             this.ToolPanel.TabIndex = 5;
             // 
             // rad_fill
@@ -124,7 +124,7 @@
             this.rad_fill.Size = new System.Drawing.Size(8, 8);
             this.rad_fill.TabIndex = 4;
             this.rad_fill.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.tip_tool.SetToolTip(this.rad_fill, "Bucket fill");
+            this.tip_tool.SetToolTip(this.rad_fill, "Bucket fill (G)");
             this.rad_fill.UseVisualStyleBackColor = true;
             this.rad_fill.CheckedChanged += new System.EventHandler(this.ToolSelected);
             // 
@@ -140,7 +140,7 @@
             this.rad_colorPicker.Size = new System.Drawing.Size(8, 8);
             this.rad_colorPicker.TabIndex = 4;
             this.rad_colorPicker.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.tip_tool.SetToolTip(this.rad_colorPicker, "Color pipette");
+            this.tip_tool.SetToolTip(this.rad_colorPicker, "Color pipette (I)");
             this.rad_colorPicker.UseVisualStyleBackColor = true;
             this.rad_colorPicker.CheckedChanged += new System.EventHandler(this.ToolSelected);
             // 
@@ -149,7 +149,7 @@
             this.panel1.Controls.Add(this.lbl_foreColor);
             this.panel1.Controls.Add(this.btn_switchColor);
             this.panel1.Controls.Add(this.lbl_backColor);
-            this.panel1.Location = new System.Drawing.Point(3, 17);
+            this.panel1.Location = new System.Drawing.Point(59, 3);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(27, 27);
             this.panel1.TabIndex = 6;
@@ -170,7 +170,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(78, 262);
+            this.ClientSize = new System.Drawing.Size(120, 262);
             this.Controls.Add(this.ToolPanel);
             this.DockAreas = ((WeifenLuo.WinFormsUI.Docking.DockAreas)(((((WeifenLuo.WinFormsUI.Docking.DockAreas.Float | WeifenLuo.WinFormsUI.Docking.DockAreas.DockLeft) 
             | WeifenLuo.WinFormsUI.Docking.DockAreas.DockRight) 

@@ -33,6 +33,7 @@ namespace Spriten
         private NumericSlider mSizeSlider;
 
         private Action<Color> ActionToolSetForeColor;
+        private Action<ToolMode> ActionToolSetTool;
         private Action<Color> ActionColorSetColor;
         private Action<bool> ActionLayerSetButton;
         private Action<List<DrawableMask>> ActionLayerRefresh;
@@ -87,6 +88,9 @@ namespace Spriten
 
             // cache frequently used brushes
             ImageHelper.CreateTextureBrushes();
+
+            KeyDown += new KeyEventHandler(Shortcuts);
+            KeyPreview = true;
         }
 
         /// <summary>
@@ -182,11 +186,81 @@ namespace Spriten
 
         }
 
+        void Shortcuts(object sender, KeyEventArgs e)
+        {
+            // export (alt shift ctrl w)???
+
+            // cut (ctrl x)
+
+            // copy (ctrl c)
+
+            // paste (ctrl v)
+
+            // center?
+
+            // pixel grid
+
+            // mask
+
+            // opacity dec (i), inc (o) or number (photoshop)
+
+            // color dock (f6)
+
+            // layer dock (f7)
+
+            // tool, mask
+
+            if (e.Modifiers == Keys.Control && e.KeyCode == Keys.S)
+                saveToolStripMenuItem_Click(sender, e);
+            else if (e.Modifiers == (Keys.Control | Keys.Shift) && e.KeyCode == Keys.S)
+                saveAsToolStripMenuItem_Click(sender, e);
+            else if (e.Modifiers == (Keys.Control | Keys.Alt) && e.KeyCode == Keys.W)
+                closeAllToolStripMenuItem_Click(sender, e);
+            else if (e.Modifiers == Keys.Control && e.KeyCode == Keys.W)
+                closeToolStripMenuItem_Click(sender, e);
+
+            switch (e.KeyCode)
+            {
+                case Keys.X:
+                    btn_switchColor_Click(sender, e);
+                    break;
+                case Keys.B:
+                    User.ToolMode = ToolMode.Draw;
+                    ActionToolSetTool?.Invoke(User.ToolMode);
+                    break;
+                case Keys.E:
+                    User.ToolMode = ToolMode.Erase;
+                    ActionToolSetTool?.Invoke(User.ToolMode);
+                    break;
+                case Keys.G:
+                    User.ToolMode = ToolMode.Fill;
+                    ActionToolSetTool?.Invoke(User.ToolMode);
+                    break;
+                case Keys.P:
+                    User.ToolMode = ToolMode.ColorPicker;
+                    ActionToolSetTool?.Invoke(User.ToolMode);
+                    break;
+                case Keys.OemOpenBrackets:
+                    SetPenSize((int)--mSizeSlider.Value);
+                    break;
+                case Keys.OemCloseBrackets:
+                    SetPenSize((int)++mSizeSlider.Value);
+                    break;
+            }
+        }
+
         private void OnSizeValueChanged(object sender, EventArgs e)
         {
-            User.PenSize = (int)mSizeSlider.Value;
+            SetPenSize((int)mSizeSlider.Value);
+        }
 
-            UpdateDocumentsBrush();
+        private void SetPenSize(int size)
+        {
+            if(size <= mSizeSlider.Maximum && size >= mSizeSlider.Minimum)
+            {
+                User.PenSize = size;
+                UpdateDocumentsBrush();
+            }
         }
 
         private void OnOpacityValueChanged(object sender, EventArgs e)
@@ -267,6 +341,7 @@ namespace Spriten
             mToolDock.UpdateBrush = UpdateDocumentsBrush;
 
             ActionToolSetForeColor = mToolDock.SetForegroundColor;
+            ActionToolSetTool = mToolDock.SelectTool;
         }
 
         #endregion
@@ -621,7 +696,7 @@ namespace Spriten
         // Save project
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(mActiveDoc.ProjectPath))
+            if (mActiveDoc != null && !string.IsNullOrEmpty(mActiveDoc.ProjectPath))
             {
                 mActiveDoc.Canvas.Project.LastSaved = DateTime.Now;
                 FileHelper.SerializeBinary(mActiveDoc.Project, mActiveDoc.ProjectPath);
@@ -633,17 +708,20 @@ namespace Spriten
         // Save project as
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (SaveFileDialog saveDialog = new SaveFileDialog())
+            if (mActiveDoc != null)
             {
-                saveDialog.FileName = mActiveDoc.Text;
-                saveDialog.Filter = "Spriten Raster Object (*.sro)|*.sro";
-
-                if (saveDialog.ShowDialog() == DialogResult.OK && saveDialog.FileName != "")
+                using (SaveFileDialog saveDialog = new SaveFileDialog())
                 {
-                    string fileName = saveDialog.FileName;
-                    mActiveDoc.Canvas.Project.LastSaved = DateTime.Now;
-                    FileHelper.SerializeBinary(mActiveDoc.Project, fileName);
-                    mActiveDoc.ProjectPath = fileName;
+                    saveDialog.FileName = mActiveDoc.Text;
+                    saveDialog.Filter = "Spriten Raster Object (*.sro)|*.sro";
+
+                    if (saveDialog.ShowDialog() == DialogResult.OK && saveDialog.FileName != "")
+                    {
+                        string fileName = saveDialog.FileName;
+                        mActiveDoc.Canvas.Project.LastSaved = DateTime.Now;
+                        FileHelper.SerializeBinary(mActiveDoc.Project, fileName);
+                        mActiveDoc.ProjectPath = fileName;
+                    }
                 }
             }
         }
@@ -895,32 +973,37 @@ namespace Spriten
         // Zoom in by 10%
         private void zoomInToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            mActiveDoc.ZoomByPercentage(10f);
+            if (mActiveDoc != null)
+                mActiveDoc.ZoomByPercentage(100f);
         }
 
         // Zoom out by 10%
         private void zoomOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            mActiveDoc.ZoomByPercentage(-10f);
+            if (mActiveDoc != null)
+                mActiveDoc.ZoomByPercentage(-100f);
         }
 
         // Fit canvas on screen
         private void fitOnScreenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            mActiveDoc.FitCanvasToScreen();
+            mActiveDoc?.FitCanvasToScreen();
         }
 
         // Reset zoom level to 100%
         private void resetTo100ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            mActiveDoc.SetZoomFactor(1);
-            mActiveDoc.CenterCanvas();
+            if (mActiveDoc != null)
+            {
+                mActiveDoc.SetZoomFactor(1);
+                mActiveDoc.CenterCanvas();
+            }
         }
 
         // Center canvas
         private void centerCanvasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            mActiveDoc.CenterCanvas();
+            mActiveDoc?.CenterCanvas();
         }
 
         // Toggle brush outline visibility

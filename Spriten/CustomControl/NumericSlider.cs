@@ -319,6 +319,8 @@ namespace Spriten.CustomControl
                     mValue = Minimum;
                 else
                     mValue = RoundValue(value);
+
+                Invalidate();
             }
         }
 

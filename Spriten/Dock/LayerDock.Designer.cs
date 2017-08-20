@@ -90,6 +90,7 @@
             this.treelist_layer.VirtualMode = true;
             this.treelist_layer.SubItemChecking += new System.EventHandler<BrightIdeasSoftware.SubItemCheckingEventArgs>(this.treelist_layer_SubItemChecking);
             this.treelist_layer.SelectedIndexChanged += new System.EventHandler(this.treelist_layer_SelectedIndexChanged);
+            this.treelist_layer.KeyDown += new System.Windows.Forms.KeyEventHandler(this.treelist_layer_KeyDown);
             this.treelist_layer.MouseUp += new System.Windows.Forms.MouseEventHandler(this.treelist_layer_MouseUp);
             // 
             // olvName
